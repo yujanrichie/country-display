@@ -1,0 +1,87 @@
+@import "src/styles/_mixins.scss";
+
+.search-filter-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 10px;
+
+    @include padding-main-content;
+
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+    
+    .search-container {
+        fa-icon {
+            position: fixed;
+            margin-left: 20px;
+            margin-top: 14px;
+        }
+
+        .search-input {
+            height: 50px;
+            width: 500px;
+            padding: 10px 20px 10px 50px;
+            border: none;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            @include set-element-color-mode;
+
+            
+            @media only screen and (max-width: 600px) {
+                width: 100%;
+            }
+
+            &::placeholder {
+                opacity: 1;
+                @include color-default;
+            }
+
+            &.dark-mode {
+                @include set-element-color-mode('dark');
+                &::placeholder {
+                    opacity: 1;
+                    @include color-dark-mode;
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .filter-container {
+        width: 200px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        @media only screen and (max-width: 600px) {
+            margin-top: 20px;
+        }
+
+        .region-filter {
+            height: 50px;
+            width: 200px;
+            padding: 10px 20px;
+            border: none;
+            @include set-element-color-mode;
+
+            &:focus {
+                outline: none;
+            }
+
+            &.dark-mode {
+                @include set-element-color-mode('dark');
+            }
+        }
+
+        .region-filter option {
+            width: 200px;
+            max-width: 200px;
+            padding: 0;
+            margin: 0;
+        }
+    }
+}

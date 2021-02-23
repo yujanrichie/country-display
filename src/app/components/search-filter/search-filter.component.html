@@ -1,0 +1,32 @@
+<div *ngIf="filterCriteria != null"
+    class="search-filter-container">
+
+    <div class="search-container">
+        <fa-icon 
+            [icon]="faSearch">
+        </fa-icon>
+        <input
+            class="search-input"
+            [class.dark-mode]="isDarkMode"
+            maxlength="50"
+            type="text"
+            [(ngModel)]="filterCriteria.searchInput"
+            (ngModelChange)="handleSearchChange()"
+            placeholder="Search for a country...">
+    </div>
+
+    <div *ngIf="regionOptions != null" 
+        class="filter-container">
+        <select 
+            class="selectpicker region-filter"
+            [class.dark-mode]="isDarkMode"
+            [(ngModel)]="filterCriteria.region"
+            (change)="handleRegionChange()">
+            <option selected disabled hidden [value]="null">Filter By Region</option>
+            <option 
+                *ngFor="let region of regionOptions"
+                [value]="region">{{ region }}</option>
+        </select>
+    </div>
+    
+</div>

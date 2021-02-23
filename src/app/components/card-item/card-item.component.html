@@ -1,0 +1,27 @@
+<div *ngIf="countryInfo != null"
+    class="card-item-container"
+    [class.dark-mode]="isDarkMode"
+    (click)="handleClick(countryInfo.alphaCode)">
+    <img 
+        class="country-flag-image" 
+        [src]="countryInfo.flagURL">
+    <div class="country-info">
+        <span 
+            *ngIf="countryInfo.name != null && countryInfo.name.length > 0"
+            class="title">
+            {{ countryInfo.name}}
+        </span>
+        <div class="key-value-info">
+            <span class="info-key">Population: </span>
+            <span class="info-value">{{ getPopulationString(countryInfo.population) }}</span>
+        </div>
+        <div class="key-value-info">
+            <span class="info-key">Region: </span>
+            <span class="info-value">{{ countryInfo.region }}</span>
+        </div>
+        <div class="key-value-info">
+            <span class="info-key">Capital: </span>
+            <span class="info-value">{{ countryInfo.capital }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+@import "src/styles/_mixins.scss";
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+
+    @include padding-main-content;
+    @include set-element-color-mode;
+    @include set-font-size(18px, 800);
+
+    @media only screen and (max-width: 600px) {
+        @include set-font-size(16px, 800);
+    }
+
+    &.dark-mode {
+        @include set-element-color-mode('dark');
+    }
+}
+
+.color-mode-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    @include set-font-size(14px, 600);
+
+    fa-icon {
+        margin-right: 5px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+    
+    &.dark-mode {
+        @include set-element-color-mode('dark');
+    }
+}

@@ -1,0 +1,26 @@
+<div class="page-container">
+    <div class="content-header">
+        <app-header 
+            [isDarkMode]="isDarkMode"
+            (darkModeChange)="toggleDarkMode($event)">
+        </app-header>
+    </div>
+    
+
+    <div 
+        class="content-body"
+        [class.dark-mode]="isDarkMode">
+        <!-- Search & Filter Bar -->
+        <app-search-filter 
+            [isDarkMode]="isDarkMode"
+            (filterChange)="handleFilterChange($event)">
+
+        </app-search-filter>
+        <!-- List of Countries -->
+        <app-card-list
+            [countryList]="countryList"
+            [filterCriteria]="filterCriteria"
+            [isDarkMode]="isDarkMode">
+        </app-card-list>
+    </div>
+</div>

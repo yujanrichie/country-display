@@ -1,0 +1,14 @@
+
+
+
+<div *ngIf="countryList != null" 
+    class="card-list-container"
+    [class.dark-mode]="isDarkMode">
+
+    <ng-container *ngFor="let country of countryList | search: filterCriteria">
+        <app-card-item 
+            [countryInfo]="country"
+            [isDarkMode]="isDarkMode">
+        </app-card-item>
+    </ng-container>
+</div>

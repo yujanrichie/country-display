@@ -1,0 +1,90 @@
+<div 
+    class="detail-page-container"
+    [class.dark-mode]="isDarkMode">
+    
+    <div class="content-header">
+        <app-header 
+            [isDarkMode]="isDarkMode"
+            (darkModeChange)="toggleDarkMode($event)">
+        </app-header>
+    </div>
+
+    <div class="content-body">
+        <button 
+            class="detail-page-button back-button"
+            [class.dark-mode]="isDarkMode"
+            (click)="handleBackClick()">
+            <fa-icon 
+                [icon]="faLongArrowAltLeft">
+            </fa-icon>
+            <span class="button-text">Back</span>
+        </button>
+
+        <div *ngIf="selectedCountry != null"
+            class="country-info-container"
+            [class.dark-mode]="isDarkMode">
+            <img 
+                class="country-flag-image" 
+                [src]="selectedCountry.flagURL">
+            <div class="country-info">
+                <span *ngIf="selectedCountry.name != null && selectedCountry.name.length > 0"
+                    class="title">
+                    {{ selectedCountry.name}}
+                </span>
+                <div class="grouped-info-container">
+                    <div class="grouped-info">
+                        <div class="key-value-info">
+                            <span class="info-key">Native Name: </span>
+                            <span class="info-value">{{ selectedCountry.nativeName }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Population: </span>
+                            <span class="info-value">{{ getPopulationString(selectedCountry.population) }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Region: </span>
+                            <span class="info-value">{{ selectedCountry.region }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Sub Region: </span>
+                            <span class="info-value">{{ selectedCountry.subregion }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Capital: </span>
+                            <span class="info-value">{{ selectedCountry.capital }}</span>
+                        </div>
+                    </div>
+                    <div class="grouped-info">
+                        <div class="key-value-info">
+                            <span class="info-key">Top Level Domain: </span>
+                            <span class="info-value">{{ getTopLevelDomainsDisplayText(selectedCountry.topLevelDomains) }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Currencies: </span>
+                            <span class="info-value">{{ getCurrenciesDisplayText(selectedCountry.currencies) }}</span>
+                        </div>
+                        <div class="key-value-info">
+                            <span class="info-key">Languages: </span>
+                            <span class="info-value">{{ getLanguagesDisplayText(selectedCountry.languages) }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div 
+                    *ngIf="(borderCountryList != null) && (borderCountryList.length > 0)"
+                    class="border-countries-container">
+                    <span class="border-key-text">Border Countries: </span>
+                    <div class="border-buttons">
+                        <button *ngFor="let border of borderCountryList"
+                            class="detail-page-button border-button"
+                            [class.dark-mode]="isDarkMode"
+                            (click)="handleBorderClick(border.alphaCode)">
+                            <span class="border-name">{{ border?.name }}</span>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>

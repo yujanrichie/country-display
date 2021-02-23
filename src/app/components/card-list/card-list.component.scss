@@ -1,0 +1,20 @@
+@import "src/styles/_mixins.scss";
+
+.card-list-container {
+    position: relative;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include set-color-mode;
+
+    &.dark-mode {
+        @include set-color-mode('dark');
+    }
+}
+
+app-card-item {
+    padding: 30px;
+}

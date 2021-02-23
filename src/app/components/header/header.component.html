@@ -1,0 +1,16 @@
+<div 
+    class="content-primary component-element header-container" 
+    [class.dark-mode]="isDarkMode">
+
+    <span class="header-title">Where in the world?</span>
+
+    <button 
+        class="color-mode-button"
+        [class.dark-mode]="isDarkMode" 
+        (click)="toggleDarkMode()">
+        <fa-icon 
+            [icon]="isDarkMode ? fasMoon : farMoon">
+        </fa-icon>
+        <span class="color-mode-text">Dark Mode</span>
+    </button>
+</div>

@@ -1,0 +1,62 @@
+/** Font Mixins **/
+
+@mixin font-family-default {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+@mixin set-font-size($size: 14px, $fontWeight: 300) {
+    @include font-family-default;
+    font-size: $size;
+    font-weight: $fontWeight;
+}
+
+/** Color Mixins **/
+@mixin background-color-default {
+    background-color: hsl(0, 0%, 98%);
+}
+
+@mixin background-color-element-default {
+    background-color: hsl(0, 0%, 100%);
+}
+
+@mixin background-color-dark-mode {
+    background-color: hsl(207, 26%, 17%);
+}
+
+@mixin background-color-element-dark-mode {
+    background-color: hsl(209, 23%, 22%);
+}
+
+@mixin color-default {
+    color: hsl(200, 15%, 8%);
+}
+
+@mixin color-dark-mode {
+    color: hsl(0, 0%, 100%);
+}
+
+@mixin set-color-mode($colorMode: 'default') {
+    @if $colorMode == 'dark' {
+        @include background-color-dark-mode;
+        @include color-dark-mode;
+    } @else {
+        @include background-color-default;
+        @include color-default;
+    }
+}
+
+@mixin set-element-color-mode($colorMode: 'default') {
+    @if $colorMode == 'dark' {
+        @include background-color-element-dark-mode;
+        @include color-dark-mode;
+    } @else {
+        @include background-color-element-default;
+        @include color-default;
+    }
+}
+
+/** Other Mixins **/
+@mixin padding-main-content {
+    padding-left: 30px;
+    padding-right: 30px;
+}
