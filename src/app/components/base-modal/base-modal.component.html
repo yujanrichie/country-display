@@ -1,0 +1,112 @@
+<div *ngIf="displayModal" #myModal class="modal-container">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title">New Country</h1>
+            <button 
+                class="close"
+                (click)="closeModal()">
+                <fa-icon 
+                    class="close-icon"
+                    [icon]="faTimesCircle">
+                </fa-icon>
+            </button>
+        </div>
+        <form (ngSubmit)="add()" #addForm="ngForm">
+            <div class="form-group">           
+                <!-- Country Details -->
+                <div class="left-group">
+                    <div class="country-details container">
+                        <h3 class="container-header">Country Details</h3>
+                        <hr class="header-divider">
+
+                        <!-- Name -->
+                        <div class="row no-gutters">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" 
+                                id="name" name="name"
+                                [(ngModel)]="country.name">
+                        </div>
+        
+                        <!-- Native Name -->
+                        <div class="row no-gutters">
+                            <label for="nativeName">Native Name</label>
+                            <input type="text" class="form-control" 
+                                id="nativeName" name="nativeName"
+                                [(ngModel)]="country.nativeName">
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Currency Details -->
+                <div class="right-group">
+                    <div class="currency-details container">
+                        <h3 class="container-header">Currency Details</h3>
+                        <hr class="header-divider">
+
+                        <!-- Name -->
+                        <div class="row no-gutters">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" 
+                                id="name" name="name"
+                                [(ngModel)]="country.name">
+                        </div>
+        
+                        <!-- Native Name -->
+                        <div class="row no-gutters">
+                            <label for="nativeName">Native Name</label>
+                            <input type="text" class="form-control" 
+                                id="nativeName" name="nativeName"
+                                [(ngModel)]="country.nativeName">
+                        </div>
+
+                        <div class="row no-gutters">
+                            <label for="nativeName">Suite</label>
+                            <input type="text" class="form-control" 
+                                id="nativeName" name="nativeName"
+                                [(ngModel)]="country.nativeName">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <label for="name">City</label>
+                                <input type="text" class="form-control" 
+                                    id="name" name="name"
+                                    [(ngModel)]="country.name">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="name">Zip Code</label>
+                                <input type="text" class="form-control" 
+                                    id="name" name="name"
+                                    [(ngModel)]="country.name">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <label for="name">Latitude</label>
+                                <input type="text" class="form-control" 
+                                    id="name" name="name"
+                                    [(ngModel)]="country.name">
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <label for="name">Longitude</label>
+                                <input type="text" class="form-control" 
+                                    id="name" name="name"
+                                    [(ngModel)]="country.name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add Button -->
+            <button type="submit" class="btn btn-success">
+                Add
+            </button>
+        </form>
+
+
+    </div>
+</div>

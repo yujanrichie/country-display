@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { SearchFilterComponent } from './components/search-filter/search-filter.component';
 import { SearchPipe } from './pipes/search.pipe';
+import { BaseModalComponent } from './components/base-modal/base-modal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchPipe } from './pipes/search.pipe';
     HeaderComponent,
     HomepageComponent,
     SearchFilterComponent,
-    SearchPipe
+    SearchPipe,
+    BaseModalComponent
   ],
   imports: [
     BrowserModule,
